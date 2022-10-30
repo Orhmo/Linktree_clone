@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 --
 # Getting Started with Create React App
 
 A simple single page Web page made with React to display all important social links to your followers/viewers.
+=======
+# Linktree clone using React
+
+>>>>>>> 8e0d8a74cd6137e6763f6fa675fc59ff169fcb63
 
 --
 ## Getting Started
