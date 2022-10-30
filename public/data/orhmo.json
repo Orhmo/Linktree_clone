@@ -1,0 +1,18 @@
+{
+  "name": "Valentina Oguka",
+  "bio": "ooh_jhay",
+  "avatar": "https://avatars.githubusercontent.com/u/98624335?s=120&v=4",
+
+  "links":[
+    {
+      "name": "Slack",
+      "url": "http://slack.com/orhmo",
+      "icon": "slack",
+    },
+    {
+      "name": "GitHub",
+      "url": "http://github.com/orhmo",
+      "icon": "github",
+    }
+  ]
+}
