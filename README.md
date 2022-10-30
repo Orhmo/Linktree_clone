@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 --
 # Getting Started with Create React App
 
@@ -16,3 +17,7 @@ A simple single page Web page made with React to display all important social li
 3. Navigate to project directory 'cd linktree'
 4. Install dependencies with 'npm install'
 5. run 'npm start'
+=======
+# Linktree_clone
+Linktree clone using React.js
+>>>>>>> 6722780a93b5f35b6255af8894d7428702386749
