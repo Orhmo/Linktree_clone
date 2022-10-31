@@ -6,7 +6,6 @@ import Profile from "./Components/Profile";
 import Socials from "./Components/Socials";
 import Buttons from "./Components/Buttons";
 
-
 import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
 import "primeflex/primeflex.css";

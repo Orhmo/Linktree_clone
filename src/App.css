@@ -117,21 +117,18 @@ h4{
   border-radius: 25px;
   padding:1rem;
 }
-.links a .subtext {
+/* h5 {
  position: absolute;
- bottom: 0;
+ opacity: 0.7;
+ float: right;
  text-align: center;
- text-transform: uppercase;
- background-color: #555;
- visibility: hidden;
+ background-color: #ccc;
  display: block;
- width: 180px;
+ width: 200px;
+ border-radius: 25px;
  padding: 10px;
-}
+} */
 
-.links a:hover .subtext {
- visibility: visible;
-}
 /* =========FOOTER========== */
 .footer {
   margin: 60px;
