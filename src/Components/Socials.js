@@ -4,7 +4,7 @@ const Socials = () =>{
   return(
     <div>
       <div className="mt-6  flex-none flex align-items-center justify-content-center">
-        <a id="slack" href="https://slack.com/">
+        <a id="slack" href="https://orhmo.slack.com/">
          <img src="slack.png" alt="slack homepage" class="mr-4"/>
          </a>
          <a id="github" href="https://github.com/orhmo">

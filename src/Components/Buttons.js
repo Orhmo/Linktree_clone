@@ -7,7 +7,7 @@ const Buttons = () =>{
     <div class="flex justify-content-center">
     <div className="links flex flex-column align-items-center">
 
-    <a href="https://twitter.com/ooh_jhay" target="_blank" id="btn__twitter"  rel="noreferrer">
+    <a href="https://twitter.com/ooh_jhay" target="_blank" id="btn__twitter"  rel="noreferrer" >
     <Button className="twitter p-2 m-2 " aria-label="Twitter">
         <span className="px-3">Twitter Link</span>
       </Button>
