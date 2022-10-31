@@ -1,20 +1,33 @@
 import React from 'react';
-import { Avatar } from 'primereact/avatar';
+
 
 const Profile = () =>{
   return(
     <div>
-    <div className="flex justify-content-center align-items-center">
-      <Avatar
-        image="profile.jpg"
+    <div className=" flex justify-content-center align-items-center profile__image">
+      <img
+        className="profile-img"
+        src="profile.jpg"
         id="profile__img"
-        shape="circle"
-        size="x-large"
+        alt="profile"
         />
+        <div className="dark-overlay">
+            <img
+              className="camera-img"
+              src="camera.png"
+              alt="camera-img"
+              />
+          </div>
       </div>
     <div className="flex justify-content-center">
-      <p id="twitter">ooh_jhay</p>
-      <p id="slack" style={{display: 'none'}}>Orhmo</p>
+    <div className="profile__links">
+          <div id="twitter-profile" className="twitter-profile">
+            <a href="https://twitter.com/ooh_jhay">ooh_jhay</a>
+          </div>
+          <div id="slack-profile" className="slack-profile" style={{display: 'none'}}>
+            <a href="https://slack.com/">Orhmo</a>
+          </div>
+        </div>
     </div>
     </div>
   )

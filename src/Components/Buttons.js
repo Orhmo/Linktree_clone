@@ -4,11 +4,12 @@ import { Button } from 'primereact/button';
 const Buttons = () =>{
   return(
     <div>
-    <div className="flex justify-content-center align-items-center">
-    <div className="flex flex-column" >
+    <div class="flex justify-content-center">
+    <div className="links flex flex-column align-items-center">
+
     <a href="https://twitter.com/ooh_jhay" target="_blank" id="btn__twitter"  rel="noreferrer">
-    <Button className="twitter p-3 m-2" aria-label="Twitter">
-        <span className="px-3 m-2">Twitter Link</span>
+    <Button className="twitter p-2 m-2 " aria-label="Twitter">
+        <span className="px-3">Twitter Link</span>
       </Button>
       </a>
 
@@ -25,7 +26,7 @@ const Buttons = () =>{
       </a>
 
     <a href="https://books.zuri.team/python-for-beginners?ref_id=<orhmo>" target="_blank" id="book__python"  rel="noreferrer">
-    <Button className="python p-3 m-2" aria-label="Python">
+    <Button className="python p-3 m-2 justify-content-center" aria-label="Python">
         <span className="px-3">Python Books</span>
       </Button>
       </a>
