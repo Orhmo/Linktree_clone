@@ -1,5 +1,4 @@
 import React from 'react';
-import {useState} from 'react';
 import { Button } from 'primereact/button';
 
 const Buttons = () =>{
@@ -42,8 +41,8 @@ const Buttons = () =>{
       </Button>
       </a>
 
-    <a href="https://books.zuri.team/design-rules" target="_blank" id="book__design"  rel="noreferrer">
-    <Button text=" Take your designs to the next level,Get a copy of this amazing guide."
+    <a text=" Take your designs to the next level,Get a copy of this amazing guide." href="https://books.zuri.team/design-rules" target="_blank" id="book__design"  rel="noreferrer">
+    <Button
      className="design p-3 m-2" aria-label="Design">
         <span className="px-3">Design Books</span>
       </Button>
