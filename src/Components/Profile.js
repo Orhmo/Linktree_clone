@@ -22,10 +22,10 @@ const Profile = () =>{
     <div className="flex justify-content-center">
     <div className="profile__links">
           <div id="twitter-profile" className="twitter-profile">
-            <a href="https://twitter.com/ooh_jhay">ooh_jhay</a>
+            <p id="twitter"><strong>ooh_jhay</strong></p>
           </div>
           <div id="slack-profile" className="slack-profile" style={{display: 'none'}}>
-            <a href="https://slack.com/">Orhmo</a>
+            <p id="slack">Orhmo</p>
           </div>
         </div>
     </div>
