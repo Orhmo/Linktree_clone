@@ -43,7 +43,7 @@ const Buttons = () =>{
       </a>
     </Tooltip>
 
-    <Tooltip title="Think you got what it take?">
+    <Tooltip title="Think you got what it takes?">
     <a href="https://background.zuri.team" target="_blank" id="pitch"  rel="noreferrer">
     <Button className="pitch p-3 m-2" aria-label="Pitch">
         <span className="px-3">Background Check for Coders </span>
