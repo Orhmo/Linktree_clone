@@ -39,6 +39,10 @@ const Buttons = () =>{
         <span className="px-3">Design Books</span>
       </a>
 
+    <a href="/contact" target="_blank" id="contact"  rel="noreferrer"
+    className="contact p-3 m-2">
+        <span className="px-3">Contact Me</span>
+      </a>
 
     </div>
     </div>
