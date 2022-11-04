@@ -1,27 +1,31 @@
 import "./App.css";
 import React from 'react';
-import Nav from "./Components/Nav";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from 'react-router-dom';
+
+import Landing from "./Components/Landing";
+import Contact from "./Components/Contact";
 import Footer from "./Components/Footer";
-import Profile from "./Components/Profile";
-import Socials from "./Components/Socials";
-import Buttons from "./Components/Buttons";
-
-import "primereact/resources/primereact.min.css";
-import "primeicons/primeicons.css";
-import "primeflex/primeflex.css";
-
 
 
 const App = () => {
   return (
-  <div className="container p-m-4">
-    <Nav/>
-    <Profile/>
-    <Buttons/>
-    <Socials/>
+    <div className="container p-m-4">
+      <Router>
+          <Routes>
+            <Route path="/"
+              element={<Landing/>}/>
+            <Route path="/contact"
+              element={<Contact/>}/>
+          </Routes>
+      </Router>
+    <br/>
     <Footer/>
-  </div>
-  );
+    </div>
+);
 }
 
 export default App;
