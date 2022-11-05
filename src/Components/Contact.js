@@ -58,7 +58,7 @@ export default class Contact extends React.Component {
           //Messages should not be empty
       if(!fields["message"]){
           formIsValid = false;
-          errors["message"] = "Message is required!";
+          errors["message"] = "Please enter a message";
         }
 
 
@@ -143,9 +143,10 @@ export default class Contact extends React.Component {
                         placeholder="Send a message and I'll reply you as soon as possible..."
                         onChange={this.handleUpdate.bind(this, "message")}
                         value={this.state.fields["message"]}>
+                        </textarea>
                         <span style={{color: "red", border:"red"}}>
                         {this.state.errors["message"]}</span>
-                        </textarea>
+
                     </div>
 
                 <div class="contact_form-div" id ="terms">
