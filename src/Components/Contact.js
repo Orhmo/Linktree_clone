@@ -103,7 +103,7 @@ export default class Contact extends React.Component {
                         placeholder="Enter your first name"
                         onChange={this.handleUpdate.bind(this, "firstname")}
                         value={this.state.fields["firstname"]}/>
-                        <span style={{color: "red"}}>
+                        <span style={{color: "#F83F23"}}>
                         {this.state.errors["firstname"]}</span>
                       </div>
 
@@ -116,7 +116,7 @@ export default class Contact extends React.Component {
                         placeholder="Enter your first name"
                         onChange={this.handleUpdate.bind(this, "lastname")}
                         value={this.state.fields["lastname"]}/>
-                        <span style={{color: "red"}}>
+                        <span style={{color: "#F83F23"}}>
                         {this.state.errors["lastname"]}</span>
                       </div>
                     </div>
@@ -130,7 +130,7 @@ export default class Contact extends React.Component {
                         placeholder="yourname@email.com"
                         onChange={this.handleUpdate.bind(this, "email")}
                         value={this.state.fields["email"]}/>
-                        <span style={{color: "red"}}>
+                        <span style={{color: "#F83F23"}}>
                         {this.state.errors["email"]}</span>
                     </div>
 
@@ -144,7 +144,7 @@ export default class Contact extends React.Component {
                         onChange={this.handleUpdate.bind(this, "message")}
                         value={this.state.fields["message"]}>
                         </textarea>
-                        <span style={{color: "red", border:"red"}}>
+                        <span style={{color: "#F83F23", border:"red"}}>
                         {this.state.errors["message"]}</span>
 
                     </div>
