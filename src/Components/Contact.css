@@ -7,7 +7,8 @@
   font-style: normal;
 }
 h3,p{
-  margin: 20px;
+  margin-left: 15px;
+  margin-bottom:25px;
 }
 h3{
   font-weight: 600;
@@ -29,7 +30,7 @@ form{
   margin: 0 auto;
 }
 .contact_form-div{
-  margin: 20px;
+  margin: 15px;
 }
 input[type="text"],
 input[type="email"],
@@ -46,6 +47,8 @@ label{
 }
 .names{
   display:flex;
+  margin:0;
+  padding: 0;
 }
 input[type="text"],
 input[type="email"],
@@ -59,11 +62,11 @@ input[type="email"],
   transition: all 0.3s ease-in-out;
 }
 input[type="text"]{
-  width:30vw;
+  width:33.4vw;
 }
 input[type="email"],
 #message{
-  width: 65vw;
+  width: 70vw;
 }
 /* =================INPUT============ */
 input[type="text"]{
@@ -126,12 +129,14 @@ border: 1px solid #82DDFF;
 }
 
 /* ==============CHECKED TERM========== */
+
 #terms > label{
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
   color: #475467;
-  margin-left: 4px;
+  display: flex;
+  vertical-align:text-bottom;
 }
 input[type="checkbox"] {
   --webkit-appearance:none;
@@ -139,10 +144,12 @@ input[type="checkbox"] {
   background-color: #ffffff;
   margin:0;
   color:#ffffff;
-  width:0.9em;
-  height:0.9em;
+  width:1rem;
+  height:1rem;
+  margin-top:0.2em;
+  margin-right: 8px;
   border: 0.1em solid #D0D5DD;
-  border-radius: 6px;
+  border-radius: 4px;
   display: inline-grid;
   place-content:center;
 }
@@ -177,7 +184,10 @@ input[type="checkbox"]:disabled{
     display: block;
   }
   input[type="text"]{
-    width: 65vw;
+    width: 70vw;
   }
-
+  input[type="checkbox"] {
+    width:1.75em;
+    height: 1.2em;
+  }
 }
