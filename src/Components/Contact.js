@@ -1,140 +1,173 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
 
 import "./Contact.css";
 
-const Contact = () => {
-  const initialValues = { firstname: "", lastname: "", email: "", message: "" };
-  const [formValues, setFormValues] = useState(initialValues);
-  const [formErrors, setFormErrors] = useState({});
-  const [isSubmit, setIsSubmit] = useState(false);
+export default class App extends React.Component {
 
-  const handleChange = (e) => {
-    console.log(e.target);
-    const {name, value} = e.target;
-    setFormValues({...formValues, [name]: value});
-    console.log(formValues);
-  };
+      state = {
+        fields: {},
+        errors: {}
+    }
+    //method to validate values
+    handleValidation = ()=>{
+      let fields = this.state.fields;
+      let errors = {};
+      let formIsValid = true;
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setFormErrors(validate(formValues));
-    setIsSubmit(true);
-  };
+      //Names check if name is empty or not
+      if(!fields["firstname"]){
+         formIsValid = false;
+         errors["firstname"] = "First name is required!";
+      }
+      if(!fields["lastname"]){
+         formIsValid = false;
+         errors["lastname"] = "Last name is required!";
+      }
+        //names should not contain special char
+      if(typeof fields["firstname"] !== "undefined"){
+          if(!fields["firstname"].match(/^[a-zA-Z]+$/)){
+            formIsValid = false;
+            errors["firstname"] = "Only letters is required";
+          }
+        }
+      if(typeof fields["lastname"] !== "undefined"){
+          if(!fields["lastname"].match(/^[a-zA-Z]+$/)){
+            formIsValid = false;
+            errors["lastname"] = "Only letters is required";
+          }
+        }
 
-  useEffect(() => {
-      console.log(formErrors);
-    if (Object.keys(formErrors).length === 0 && isSubmit){
-      console.log(formValues);
-    }
-  }, [formErrors]);
+      //Email should not be empty
+      if(!fields["email"]){
+         formIsValid = false;
+         errors["email"] = "Email is required!";
+      }
+        //validating email
+      if(typeof fields["email"] !== "undefined"){
+         let lastAtPos = fields["email"].lastIndexOf('@');
+         let lastDotPos = fields["email"].lastIndexOf('.');
 
-  const validate = (values) => {
-    const errors = {};
-    const regex =  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    if (!values.firstname) {
-      errors.firstname = "First name is required!";
-    }
-    if (!values.lastname) {
-      errors.lastname = "Last name is required!";
-    }
-    if (!values.email) {
-      errors.email = "Email is required!";
-    } else if (!regex.test(values.email)) {
-      errors.email = "Invalid email format";
-    }
-    if (!values.message) {
-      errors.message = "Message is required!";
-    }
-    return errors;
+         if (!(lastAtPos < lastDotPos && lastAtPos > 0
+         && fields["email"].indexOf('@@') === -1 &&
+         lastDotPos > 2 && (fields["email"].length - lastDotPos) > 2)) {
+            formIsValid = false;
+            errors["email"] = "Email is not valid";
+          }
+     }
+          //Messages should not be empty
+      if(!fields["message"]){
+          formIsValid = false;
+          errors["message"] = "Message is required!";
+        }
+
+
+     this.setState({errors: errors});
+     return formIsValid;
+ }
+
+    //after submit form it will be called
+  handleSubmit = (e) =>{
+  e.preventDefault();
+    if(this.handleValidation())
+      alert("Form submitted successfully")
   }
 
-  return(
-    <div class="container">
-
-    <div class="contact_content">
-      <form action="" class="contact_form"
-        onSubmit={handleSubmit} id="contact-form">
-
-        <h3 class="contact_title">
-          Contact Me
-        </h3>
-        <p>
-        Hi there, contact me to ask about anything you have in mind.
-        </p>
-
-        <div class="names">
-         <div class="contact_form-div">
-            <label>First Name</label>
-              <input
-                type="text"
-                name="firstname"
-                id="first_name"
-                value={formValues.firstname}
-                onChange={handleChange}
-                placeholder="Enter your first name" required/>
-              </div>
-              <p>{formErrors.firstname}</p>
-
-         <div class="contact_form-div">
-              <label>Last Name</label>
-                <input
-                  type="text"
-                  name="lastname"
-                  id="last_name"
-                  value={formValues.lastname}
-                  onChange={handleChange}
-                  placeholder="Enter your last name" required/>
-              </div>
-              <p>{formErrors.lastname}</p>
-          </div>
-          
-          <div class="contact_form-div">
-                <label>Email</label>
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    value={formValues.email}
-                    onChange={handleChange}
-                    placeholder="yourname@email.com" required/>
-                </div>
-                <p>{formErrors.email}</p>
-
-          <div class="contact_form-div contact_form-area">
-                <label>Message</label>
-                  <textarea
-                    name="message"
-                    id="message"
-                    rows="10" cols="30"
-                    placeholder="Send a message and I'll reply you as soon as possible..." required></textarea>
-                </div>
-                <p>{formErrors.message}</p>
-          <p id="contact-alert" class="contact_alert"></p>
-
-          <div class="contact_form-div" id ="terms">
-              <input
-                type="checkbox"
-                id="accept"
-                name="accept"
-                value="accepted"
-                required/>
-                <label for="accept">
-                You agree to providing your data to Oguka, Valentina Omojevwe who may contact you.
-              </label>
-              </div>
-
-          <button
-            type="submit"
-            id="btn__submit"
-            class="button">
-              Send message
-            </button>
-    </form>
-    </div>
-    </div>
-
-  );
+    //updating the field value
+  handleUpdate(field, e){
+    let fields = this.state.fields;
+    fields[field] = e.target.value;
+    this.setState({fields});
 }
 
-export default Contact;
+
+
+    render(){
+      return (
+        <div className="container">
+          <div className="contact_content">
+             <form  onSubmit= {this.handleSubmit.bind(this)} className="contact_form">
+             <h3 class="contact_title">
+                Contact Me
+                </h3>
+                <p>
+                Hi there, contact me to ask about anything you have in mind.
+                </p>
+                <div class="names">
+                  <div class="contact_form-div">
+                    <label>First Name</label>
+                      <input
+                        type="text"
+                        name="firstname"
+                        id="first_name"
+                        placeholder="Enter your first name"
+                        onChange={this.handleUpdate.bind(this, "firstname")}
+                        value={this.state.fields["firstname"]}/>
+                        <span style={{color: "red"}}>
+                        {this.state.errors["firstname"]}</span>
+                      </div>
+
+                  <div class="contact_form-div">
+                    <label>Last Name</label>
+                      <input
+                        type="text"
+                        name="lastname"
+                        id="last_name"
+                        placeholder="Enter your first name"
+                        onChange={this.handleUpdate.bind(this, "lastname")}
+                        value={this.state.fields["lastname"]}/>
+                        <span style={{color: "red"}}>
+                        {this.state.errors["lastname"]}</span>
+                      </div>
+
+                <div class="contact_form-div">
+                    <label>Email</label>
+                      <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        placeholder="yourname@email.com"
+                        onChange={this.handleUpdate.bind(this, "email")}
+                        value={this.state.fields["email"]}/>
+                        <span style={{color: "red"}}>
+                        {this.state.errors["email"]}</span>
+                    </div>
+
+               <div class="contact_form-div contact_form-area">
+                  <label>Message</label>
+                     <textarea
+                        name="message"
+                        id="message"
+                        rows="10" cols="30"
+                        placeholder="Send a message and I'll reply you as soon as possible..."
+                        onChange={this.handleUpdate.bind(this, "message")}
+                        value={this.state.fields["message"]}>
+                        <span style={{color: "red"}}>
+                        {this.state.errors["message"]}</span>
+                        </textarea>
+                    </div>
+
+                <div class="contact_form-div" id ="terms">
+                  <label for="accept">
+                      <input
+                        type="checkbox"
+                        id="accept"
+                        name="accept"
+                        value="accepted"
+                        required/>
+                        You agree to providing your data to Oguka, Valentina Omojevwe who may contact you.
+                    </label>
+                  </div>
+
+                        <button
+                        type="submit"
+                        id="btn__submit"
+                        class="button">
+                        Send message
+                        </button>
+                 </div>
+            </form>
+        </div>
+     </div>
+    )
+  }
+}
