@@ -23,7 +23,6 @@ p{
   line-height: 30px;
   color: #475467;
 }
-
 /* ===============FORM============= */
 form{
   width: 70%;
@@ -50,6 +49,7 @@ label{
   margin:0;
   padding: 0;
 }
+
 input[type="text"],
 input[type="email"],
 #message{
@@ -68,6 +68,7 @@ input[type="email"],
 #message{
   width: 70vw;
 }
+
 /* =================INPUT============ */
 input[type="text"]{
   gap: 8px;
@@ -86,6 +87,7 @@ placeholder{
   line-height: 24px;
   color: #667085;
 }
+
 
 /* =============MESSAGE============== */
 #message:focus {
@@ -128,6 +130,7 @@ border: 1px solid #82DDFF;
   border: 1px solid #175CD3;
 }
 
+
 /* ==============CHECKED TERM========== */
 
 #terms > label{
@@ -163,9 +166,7 @@ input[type="checkbox"]::before {
   box-shadow: inset 1em 1em #1570EF;
   transform-origin: bottom left;
   clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
-
 }
-
 input[type="checkbox"]:checked::before{
   transform: scale(1);
 }
@@ -177,6 +178,8 @@ input[type="checkbox"]:disabled{
   background: #F2F4F7;
   border: 1px solid #D0D5DD;
 }
+
+
 
 /* =============SMALLER SCREENS========== */
 @media only screen and (max-width:760px){
