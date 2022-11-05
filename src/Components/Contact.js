@@ -8,7 +8,7 @@ export default class App extends React.Component {
         fields: {},
         errors: {}
     }
-    //method to validate values
+    //Validation method
     handleValidation = ()=>{
       let fields = this.state.fields;
       let errors = {};
@@ -141,7 +141,7 @@ export default class App extends React.Component {
                         placeholder="Send a message and I'll reply you as soon as possible..."
                         onChange={this.handleUpdate.bind(this, "message")}
                         value={this.state.fields["message"]}>
-                        <span style={{color: "red"}}>
+                        <span style={{color: "red", border:"1px solid red"}}>
                         {this.state.errors["message"]}</span>
                         </textarea>
                     </div>
@@ -153,7 +153,7 @@ export default class App extends React.Component {
                         id="accept"
                         name="accept"
                         value="accepted"
-                        required/>
+                        />
                         You agree to providing your data to Oguka, Valentina Omojevwe who may contact you.
                     </label>
                   </div>
