@@ -1,51 +1,133 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 
 import "./Contact.css";
 
 const Contact = () => {
+  const initialValues = { firstname: "", lastname: "", email: "", message: "" };
+  const [formValues, setFormValues] = useState(initialValues);
+  const [formErrors, setFormErrors] = useState({});
+  const [isSubmit, setIsSubmit] = useState(false);
+
+  const handleChange = (e) => {
+    console.log(e.target);
+    const {name, value} = e.target;
+    setFormValues({...formValues, [name]: value});
+    console.log(formValues);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setFormErrors(validate(formValues));
+    setIsSubmit(true);
+  };
+
+  useEffect(() => {
+      console.log(formErrors);
+    if (Object.keys(formErrors).length === 0 && isSubmit){
+      console.log(formValues);
+    }
+  }, [formErrors]);
+
+  const validate = (values) => {
+    const errors = {};
+    const regex =  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    if (!values.firstname) {
+      errors.firstname = "First name is required!";
+    }
+    if (!values.lastname) {
+      errors.lastname = "Last name is required!";
+    }
+    if (!values.email) {
+      errors.email = "Email is required!";
+    } else if (!regex.test(values.email)) {
+      errors.email = "Invalid email format";
+    }
+    if (!values.message) {
+      errors.message = "Message is required!";
+    }
+    return errors;
+  }
+
   return(
-    <div class="contact">
+    <div class="container">
+
     <div class="contact_content">
-      <h3 class="contact_title">
-        Contact Me
-      </h3>
-      <p>
-      Hi there, contact me to ask about anything you have in mind.
-      </p>
-      <form action="" class="contact_form" id="contact-form">
+      <form action="" class="contact_form"
+        onSubmit={handleSubmit} id="contact-form">
+
+        <h3 class="contact_title">
+          Contact Me
+        </h3>
+        <p>
+        Hi there, contact me to ask about anything you have in mind.
+        </p>
+
+        <div class="names">
          <div class="contact_form-div">
-              <label class="contact_form-tag">First Name</label>
-              <input type="text" name="user_name" id="contact-name" class="contact_form-input"
-               placeholder="Enter your first name" required/>
+            <label>First Name</label>
+              <input
+                type="text"
+                name="firstname"
+                id="first_name"
+                value={formValues.firstname}
+                onChange={handleChange}
+                placeholder="Enter your first name" required/>
               </div>
+              <p>{formErrors.firstname}</p>
 
          <div class="contact_form-div">
-              <label class="contact_form-tag">Last Name</label>
-              <input type="text" name="user_name" id="contact-name" class="contact_form-input"
-               placeholder="Enter your last name" required/>
+              <label>Last Name</label>
+                <input
+                  type="text"
+                  name="lastname"
+                  id="last_name"
+                  value={formValues.lastname}
+                  onChange={handleChange}
+                  placeholder="Enter your last name" required/>
               </div>
-
+              <p>{formErrors.lastname}</p>
+          </div>
+          
           <div class="contact_form-div">
-                <label class="contact_form-tag"> Email:</label>
-                <input type="email" name="user_email" id="contact-email" class="contact_form-input"
-                 placeholder="yourname@email.com" required/>
+                <label>Email</label>
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    value={formValues.email}
+                    onChange={handleChange}
+                    placeholder="yourname@email.com" required/>
                 </div>
+                <p>{formErrors.email}</p>
 
           <div class="contact_form-div contact_form-area">
-                <label class="contact_form-tag"> Message</label>
-                <textarea name="user_project"  id="contact-project" class="contact_form-input" rows="10" cols="30"
-                placeholder="Send a message and I'll reply you as soon as possible..." required></textarea>
+                <label>Message</label>
+                  <textarea
+                    name="message"
+                    id="message"
+                    rows="10" cols="30"
+                    placeholder="Send a message and I'll reply you as soon as possible..." required></textarea>
                 </div>
-
+                <p>{formErrors.message}</p>
           <p id="contact-alert" class="contact_alert"></p>
 
-          <div id ="terms">
-            <label>
-            <input type="checkbox" name="terms" class="inline" value="accept"/>
-                You agree to providing your data to name who may contact you.
+          <div class="contact_form-div" id ="terms">
+              <input
+                type="checkbox"
+                id="accept"
+                name="accept"
+                value="accepted"
+                required/>
+                <label for="accept">
+                You agree to providing your data to Oguka, Valentina Omojevwe who may contact you.
               </label>
               </div>
-          <button type="submit" class="button">
+
+          <button
+            type="submit"
+            id="btn__submit"
+            class="button">
               Send message
             </button>
     </form>
