@@ -2,7 +2,8 @@ import React from 'react';
 
 import "./Contact.css";
 
-export default class App extends React.Component {
+
+export default class Contact extends React.Component {
 
       state = {
         fields: {},
@@ -84,7 +85,7 @@ export default class App extends React.Component {
     render(){
       return (
         <div className="container">
-          <div className="contact_content">
+          <div className="contact_content" >
              <form  onSubmit= {this.handleSubmit.bind(this)} className="contact_form">
              <h3 class="contact_title">
                 Contact Me
@@ -118,6 +119,7 @@ export default class App extends React.Component {
                         <span style={{color: "red"}}>
                         {this.state.errors["lastname"]}</span>
                       </div>
+                    </div>
 
                 <div class="contact_form-div">
                     <label>Email</label>
@@ -141,7 +143,7 @@ export default class App extends React.Component {
                         placeholder="Send a message and I'll reply you as soon as possible..."
                         onChange={this.handleUpdate.bind(this, "message")}
                         value={this.state.fields["message"]}>
-                        <span style={{color: "red", border:"1px solid red"}}>
+                        <span style={{color: "red", border:"red"}}>
                         {this.state.errors["message"]}</span>
                         </textarea>
                     </div>
@@ -152,8 +154,7 @@ export default class App extends React.Component {
                         type="checkbox"
                         id="accept"
                         name="accept"
-                        value="accepted"
-                        />
+                        value="accepted"/>
                         You agree to providing your data to Oguka, Valentina Omojevwe who may contact you.
                     </label>
                   </div>
@@ -164,7 +165,7 @@ export default class App extends React.Component {
                         class="button">
                         Send message
                         </button>
-                 </div>
+
             </form>
         </div>
      </div>
