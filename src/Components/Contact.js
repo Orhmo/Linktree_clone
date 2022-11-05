@@ -143,8 +143,7 @@ export default class Contact extends React.Component {
                         rows="10" cols="30"
                         placeholder="Send a message and I'll reply you as soon as possible..."
                         onChange={this.handleUpdate.bind(this, "message")}
-                        value={this.state.fields["message"]}
-                        onBlur={this.handleValidation} formIsValid={this.formIsValid}>
+                        value={this.state.fields["message"]}>
                         </textarea>
                         <span style={{color: "#F83F23", border:"red"}}>
                         {this.state.errors["message"]}</span>
