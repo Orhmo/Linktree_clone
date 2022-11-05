@@ -9,6 +9,7 @@ export default class Contact extends React.Component {
         fields: {},
         errors: {}
     }
+
     //Validation method
     handleValidation = ()=>{
       let fields = this.state.fields;
@@ -142,7 +143,8 @@ export default class Contact extends React.Component {
                         rows="10" cols="30"
                         placeholder="Send a message and I'll reply you as soon as possible..."
                         onChange={this.handleUpdate.bind(this, "message")}
-                        value={this.state.fields["message"]}>
+                        value={this.state.fields["message"]}
+                        onBlur={this.handleValidation} formIsValid={this.formIsValid}>
                         </textarea>
                         <span style={{color: "#F83F23", border:"red"}}>
                         {this.state.errors["message"]}</span>
@@ -160,12 +162,12 @@ export default class Contact extends React.Component {
                     </label>
                   </div>
 
-                        <button
-                        type="submit"
-                        id="btn__submit"
-                        class="button">
-                        Send message
-                        </button>
+                  <button
+                    type="submit"
+                    id="btn__submit"
+                    class="button">
+                    Send message
+                  </button>
 
             </form>
         </div>
